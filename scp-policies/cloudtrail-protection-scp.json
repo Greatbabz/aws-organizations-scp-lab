@@ -1,0 +1,31 @@
+1. cloudtrail-protection-scp.json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyDisableCloudTrail",
+      "Effect": "Deny",
+      "Action": [
+        "cloudtrail:StopLogging",
+        "cloudtrail:DeleteTrail",
+        "cloudtrail:UpdateTrail"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+
+This SCP prevents users — including administrators — from disabling,
+deleting, or modifying AWS CloudTrail logging.
+
+CloudTrail records account activity and API actions across AWS services.
+Protecting CloudTrail is critical for:
+- Security monitoring
+- Compliance requirements
+- Incident investigation
+- Audit logging
+
+Without this SCP, attackers or malicious insiders could disable logs
+to hide their actions.
+
+

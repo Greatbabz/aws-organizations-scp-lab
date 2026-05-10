@@ -1,0 +1,22 @@
+2. deny-leave-organization-scp.json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyLeaveOrganization",
+      "Effect": "Deny",
+      "Action": [
+        "organizations:LeaveOrganization"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+Explanation
+This SCP prevents AWS accounts from leaving the AWS Organization.
+
+It helps maintain centralized governance, billing control,
+security policies, and compliance enforcement across all accounts.
+
+Without this SCP, an administrator in a member account could remove
+the account from the organization and bypass organizational controls.
