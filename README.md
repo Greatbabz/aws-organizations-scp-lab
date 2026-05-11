@@ -145,13 +145,6 @@ This maintains:
 Stored in:
 ![SCP vs IAM Comparison](tables/scp-vs-iam-comparison.png)
 
-| Feature | SCP | IAM Policy |
-|--------|-----|-------------|
-| Scope | Organization / OU | User / Role |
-| Control Type | Guardrail | Permission grant |
-| Can grant access? | ❌ No | ✅ Yes |
-| Overrides | IAM policies | None |
-
 ---
 
 ##  Key Concepts
