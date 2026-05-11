@@ -90,9 +90,9 @@ SCPs are applied at the OU level to enforce governance boundaries.
       "Sid": "DenyDisableCloudTrail",
       "Effect": "Deny",
       "Action": [
-        "cloudtrail: StopLogging",
-        "cloudtrail: DeleteTrail",
-        "cloudtrail: UpdateTrail"
+        "cloudtrail:StopLogging",
+        "cloudtrail:DeleteTrail",
+        "cloudtrail:UpdateTrail"
       ],
       "Resource": "*"
     }
@@ -140,9 +140,18 @@ This maintains:
 - Organizational compliance
 - Billing and account control
 
+---
+
 ##  SCP vs IAM Policy
 
 ![SCP vs IAM Comparison](tables/scp-vs-iam-comparison.png)
+
+| Feature | SCP | IAM Policy |
+|----------|-----|------------|
+| Scope | Organization / OU | User / Role |
+| Control Type | Guardrail | Permission grant |
+| Can grant access? | ❌ No | ✅ Yes |
+| Overrides | IAM policies | None |
 
 ---
 
