@@ -142,7 +142,6 @@ This maintains:
 
 ##  SCP vs IAM Policy
 
-Stored in:
 ![SCP vs IAM Comparison](tables/scp-vs-iam-comparison.png)
 
 ---
