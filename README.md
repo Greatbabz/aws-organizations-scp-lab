@@ -123,7 +123,7 @@ This helps preserve:
       "Sid": "DenyLeaveOrganization",
       "Effect": "Deny",
       "Action": [
-        "organizations: LeaveOrganization"
+        "organizations:LeaveOrganization"
       ],
       "Resource": "*"
     }
