@@ -49,33 +49,32 @@ Purpose: Monitoring, compliance, and security enforcement
 
 ---
 
-##  Architecture Diagram
+# Architecture Diagram
 
-Stored in:
 ![OluPay Architecture Diagram](diagrams/OluPay-Ltd-Organizations-Diagram.png)
 
 ---
 
 ##  Service Control Policies (SCPs)
 
-SCPs are applied at the OU level to enforce governance boundaries.
+SCPs are applied at the Organizational Unit (OU) level to enforce governance boundaries.
 
-### Production OU SCPs
-- Restrict AWS regions  
-- Deny sensitive services  
-- Prevent deletion of production resources  
+## Production OU SCPs
+- Restrict AWS regions
+- Deny sensitive services
+- Prevent deletion of production resources
 
-### Development OU SCPs
-- Limit EC2 instance sizes  
-- Restrict IAM privilege escalation  
-- Block access to production databases  
+## Development OU SCPs
+- Limit EC2 instance sizes
+- Restrict IAM privilege escalation
+- Block access to production databases
 
-### Security OU SCPs
-- Enforce MFA for all users  
-- Prevent CloudTrail deletion  
-- Block public S3 access  
-- Prevent log tampering  
-
+## Security OU SCPs
+- Enforce MFA for all users
+- Prevent CloudTrail deletion
+- Block public S3 access
+- Prevent log tampering
+  
 ---
 
 ## CloudTrail Protection SCP
