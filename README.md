@@ -52,7 +52,7 @@ Purpose: Monitoring, compliance, and security enforcement
 ##  Architecture Diagram
 
 Stored in:
-diagrams/OluPay-Ltd-Organizations-Diagram.png
+![OluPay Architecture Diagram](diagrams/OluPay-Ltd-Organizations-Diagram.png)
 
 ---
 
@@ -78,28 +78,72 @@ SCPs are applied at the OU level to enforce governance boundaries.
 
 ---
 
-##  CloudTrail Protection SCP
+## CloudTrail Protection SCP
 
-Stored in:
-scp-policies/cloudtrail-protection-scp.json
+📄 File: [cloudtrail-protection-scp.json](scp-policies/cloudtrail-protection-scp.json)
 
-Prevents disabling or deleting CloudTrail logs to ensure audit integrity and compliance.
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyDisableCloudTrail",
+      "Effect": "Deny",
+      "Action": [
+        "cloudtrail: StopLogging",
+        "cloudtrail: DeleteTrail",
+        "cloudtrail: UpdateTrail"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+Purpose:
+Prevents users — including administrators — from disabling, deleting, or modifying AWS CloudTrail logging.
+
+This helps preserve:
+- Audit integrity
+- Compliance requirements
+- Incident investigation capabilities
+- Security monitoring
 
 ---
 
-##  Leave Organization SCP
+## Leave Organization SCP
 
-Stored in:
-scp-policies/deny-leave-org-scp.json
+📄 File: [deny-leave-org-scp.json](scp-policies/deny-leave-org-scp.json)
 
-Prevents accounts from leaving the AWS Organization without admin approval.
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyLeaveOrganization",
+      "Effect": "Deny",
+      "Action": [
+        "organizations: LeaveOrganization"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
 
----
+Purpose:
+Prevents AWS accounts from leaving the AWS Organization without approval.
+
+This maintains:
+- Centralized governance
+- Security policy enforcement
+- Organizational compliance
+- Billing and account control
 
 ##  SCP vs IAM Policy
 
 Stored in:
-tables/scp-vs-iam-comparison.png
+![SCP vs IAM Comparison](tables/scp-vs-iam-comparison.png)
 
 | Feature | SCP | IAM Policy |
 |--------|-----|-------------|
